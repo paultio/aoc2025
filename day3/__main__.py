@@ -11,6 +11,19 @@ def main3_1():
     print("Total Joltage:", total_joltage)
 
 
+def main3_2():
+    data = read_input('day3/input.txt')
+    # Process data for part 2
+    total_joltage = 0
+    for line in data:
+        n_max_jolt = n_biggest_numbers(line, 12)
+        print(f"N Max Jolt: {n_max_jolt}\n")
+        total_joltage += n_max_jolt
+    print("Total N Joltage:", total_joltage)
+
 
 if __name__ == "__main__":
-    main3_1()
+    main3_2()
+
+
+234234234234278
