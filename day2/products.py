@@ -16,3 +16,27 @@ def is_repeating(value: int) -> bool:
         return False
     mid = length // 2
     return sequence[:mid] == sequence[mid:]
+
+def factors(n: int) -> list[int]:
+    result = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            result.append(i)
+    return result
+
+def has_repeating_pattern(value: int) -> bool:
+    sequence = str(value)
+    length = len(sequence)
+    found = False
+    for search_window in factors(length):
+        for start in range(length - 2 * search_window + 1):
+            found = True
+            if sequence[start:start + search_window] == sequence[start + search_window:start + 2 * search_window]:
+                continue
+            else:
+                found = False
+                break
+        if found:
+            break
+
+    return found
